@@ -1,4 +1,4 @@
-"Use server"
+"use server"
 
 import ConnectDB from "@/db";
 import User from "@/models/user-model";
