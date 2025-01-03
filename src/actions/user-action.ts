@@ -13,6 +13,8 @@ interface IUser {
 
 export async function createUser(user:IUser){
     try {
+        console.log("activeing");
+        
         await ConnectDB();
         const newUser=await User.create(user);
 
