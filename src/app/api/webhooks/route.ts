@@ -59,7 +59,7 @@ export async function POST(req: Request) {
   const { id } = evt.data
   const eventType = evt.type
 
-  // store the clerk user in mongodb
+  // store the clerk user in mongo 'user.created'db
 
   if(eventType === "user.created"){
     const {id,image_url,email_addresses,first_name,last_name}= evt.data;
