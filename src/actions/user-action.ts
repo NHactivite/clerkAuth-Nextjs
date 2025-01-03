@@ -3,7 +3,15 @@
 import ConnectDB from "@/db";
 import User from "@/models/user-model";
 
-export async function createUser(user:any){
+interface IUser {
+    clerkId: string;
+    email: string;
+    photo?: string;
+    firstName?: string | null;
+    lastName?: string | null;
+}
+
+export async function createUser(user:IUser){
     try {
         await ConnectDB();
         const newUser=await User.create(user);

@@ -4,6 +4,13 @@ import { clerkClient, WebhookEvent } from '@clerk/nextjs/server'
 import { createUser } from '@/actions/user-action'
 import { NextResponse } from 'next/server'
 
+interface IUser {
+  clerkId: string;
+  email: string;
+  photo?: string;
+  firstName?: string | null;
+  lastName?: string | null;
+}
 export async function POST(req: Request) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET
 
@@ -56,9 +63,9 @@ export async function POST(req: Request) {
 
   if(eventType === "user.created"){
     const {id,image_url,email_addresses,first_name,last_name}= evt.data;
-    const user={
+    const user:IUser={
         clerkId:id,
-        email:email_addresses[0],email_addresses,
+        email:email_addresses[0].email_address,
         photo:image_url,
         firstName:first_name,
         lastName:last_name
