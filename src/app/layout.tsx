@@ -1,17 +1,13 @@
+import Navbar from "@/components/navbar";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  ClerkProvider
+} from '@clerk/nextjs';
+import { dark } from "@clerk/themes";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {
-  ClerkProvider,
-  ClerkLoaded,
-  ClerkLoading,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
-import Navbar from "@/components/navbar";
-import {dark} from "@clerk/themes"
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
